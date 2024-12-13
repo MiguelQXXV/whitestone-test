@@ -105,6 +105,23 @@ if ( ! function_exists( 'whitestone_block_styles' ) ) :
 			)
 		);
 		register_block_style(
+			'core/navigation-link',
+			array(
+				'name'         => 'link-navigation__button',
+				'label'        => __( 'Primary Button', 'whitestone' ),
+				/*
+				 * Styles for the custom arrow nav link block style
+				 */
+				'inline_style' => '
+				.is-style-link-navigation__button {
+					background-color: #273675 !important;
+                    color: #FFFFFF !important;
+                    padding: 0.5rem 1.25rem !important;
+                    border-radius: 4px;
+				}',
+			)
+		);
+		register_block_style(
 			'core/heading',
 			array(
 				'name'         => 'asterisk',
@@ -173,6 +190,16 @@ if ( ! function_exists( 'whitestone_block_stylesheets' ) ) :
 				'src'    => get_parent_theme_file_uri( 'assets/css/button-outline.css' ),
 				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
 				'path'   => get_parent_theme_file_path( 'assets/css/button-outline.css' ),
+			)
+		);
+
+        wp_enqueue_block_style(
+			'core/group',
+			array(
+				'handle' => 'whitestone-footer',
+				'src'    => get_parent_theme_file_uri( 'assets/css/footer.css' ),
+				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+				'path'   => get_parent_theme_file_path( 'assets/css/footer.css' ),
 			)
 		);
 	}
